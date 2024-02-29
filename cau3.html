@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function sumOfListPrime(x){
+        // tao arr gom tu 0 toi x
+        let arr = []
+        for (let i=0; i<=x; i++){
+            arr.push(i)
+        }
+
+        // function check y co phai SNT ko
+        function checkSNT(y){
+            let count = 0
+            if (y<2){return false}
+            else {
+                if (y===2){return true}
+                else {
+                    for (let j=2; j<y;j++){
+                        if (y%j===0){count++}
+                    }
+                    if (count===0){return true}
+                    else {return false}
+                }
+            }
+        }
+
+        // check arr[i] co phai SNT khong & tao arrSNT gom cac SNT
+        let arrSNT = []
+        for (let i=0; i<arr.length;i++){
+            if (checkSNT(arr[i])===true){arrSNT.push(arr[i])}
+        }
+
+        // tinh sum cac phan tu cua arrSNT
+        let sum = 0
+        for (let i=0; i<arrSNT.length;i++){
+            sum += arrSNT[i]
+        }
+        return sum
+
+    }
+
+    // testing
+    sumOfListPrime(8)
+
+</script>
